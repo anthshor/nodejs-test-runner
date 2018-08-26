@@ -30,23 +30,37 @@ var results = {};
 
 // Run tests
 runTests = function(){
+  var total_passed = 0;
+  var total_failed = 0;
+
   for(var test in tests){
     try {
         tests[test](function(){
-            results[test]= "passed";  
+            //results[test]= "passed";
+            total_passed++;  
         });
       } catch(e){
-        results[test]= "failed";
+        results[test]= e;
+        total_failed++
       }
   };
-  testReport(results);
+  testReport(results,total_passed,total_failed);
 };
 
 //Display results
-testReport = function (results){
+testReport = function (results, passed, failed){
+  console.log("");
+  console.log("Test Runner")
+  console.log("-----------");
+  console.log("Total passed = "+passed);
+  console.log("Total failed = "+failed);
+  console.log("");
+  console.log("Reason for failure:")
   for(var test in results){
-    console.log(test+" = "+results[test]);
+    console.log(" Test   : '"+test+"'");
+    console.log(" Reason : "+results[test]);
   }
+  console.log("");
 }
 
 runTests();
