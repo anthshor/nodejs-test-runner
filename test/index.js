@@ -32,8 +32,9 @@ var results = {};
 runTests = function(){
   var total_passed = 0;
   var total_failed = 0;
-
+  var counter = 0;
   for(var test in tests){
+    counter++
     try {
         tests[test](function(){
             //results[test]= "passed";
@@ -44,22 +45,30 @@ runTests = function(){
         total_failed++
       }
   };
-  testReport(results,total_passed,total_failed);
+  testReport(results,total_passed,total_failed,counter);
 };
 
 //Display results
-testReport = function (results, passed, failed){
+testReport = function (results, passed, failed, total){
   console.log("");
-  console.log("Test Runner")
-  console.log("-----------");
-  console.log("Total passed = "+passed);
-  console.log("Total failed = "+failed);
+  console.log("----- Begin Test Runner -----");
   console.log("");
-  console.log("Reason for failure:")
+  console.log("----- Test Summary -----")
+  console.log("");
+  console.log("Total Tests : "+ total);
+  console.log("     Passed : "+passed);
+  console.log("     Failed : "+failed);
+  console.log("");
+  console.log("----- Failure Details -----")
   for(var test in results){
-    console.log(" Test   : '"+test+"'");
-    console.log(" Reason : "+results[test]);
+    console.log("");
+    console.log("       Name : '"+test+"'");
+    console.log("     Actual : " + results[test].actual);
+    console.log("   Expected : " + results[test].expected);
+    console.log("       Test : " + results[test].actual + " " + results[test].operator + " " + results[test].expected)
   }
+  console.log("");
+  console.log("----- End Test Runner -----")
   console.log("");
 }
 
