@@ -26,16 +26,30 @@ tests['equal to 2?'] = function(done){
   done();
 }
 
+var results = {};
+
 // Run tests
-for(var test in tests){
+runTests = function(){
+  for(var test in tests){
     try {
         tests[test](function(){
-            console.log(test+" passed");  
+            results[test]= "passed";  
         });
       } catch(e){
-        console.log(test+" failed");
+        results[test]= "failed";
       }
+  };
+  testReport(results);
 };
+
+//Display results
+testReport = function (results){
+  for(var test in results){
+    console.log(test+" = "+results[test]);
+  }
+}
+
+runTests();
 
 
 
