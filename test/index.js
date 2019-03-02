@@ -51,6 +51,7 @@ runTests = function(){
       }
   };
   testReport(results,total_passed,total_failed,counter);
+  if (total_failed > 0) {process.exit(1)};
 };
 
 //Display results
