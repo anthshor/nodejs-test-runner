@@ -3,4 +3,4 @@ node_js:
   - "iojs"
   - "8"
 #script:
-$  - test/index.js
+#  - test/index.js
