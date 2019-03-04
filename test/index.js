@@ -22,7 +22,7 @@ tests['equal to 1?'] = function(done){
 }
 
 tests['equal to 2?'] = function(done){
-  assert.equal(x,2);
+  assert.equal(2*x,2);
   done();
 }
 
