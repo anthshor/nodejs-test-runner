@@ -22,7 +22,7 @@ tests['equal to 1?'] = function(done){
 }
 
 tests['equal to 2?'] = function(done){
-  assert.equal(x,2);
+  assert.equal(2*x,2);
   done();
 }
 
@@ -51,6 +51,7 @@ runTests = function(){
       }
   };
   testReport(results,total_passed,total_failed,counter);
+  if (total_failed > 0) {process.exit(1)};
 };
 
 //Display results
