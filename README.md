@@ -6,4 +6,4 @@ A description of the project
 The purpose behind the work
 
 ## How?
-How is it going to have an impact (or How the what is to be achieved?)
+How is it going to have an impact (or How the what is to be achieved? = git repo itself)
